@@ -29,9 +29,9 @@ app.controller('main', ['$scope', 'Socket',
         $scope.start = true;
         $scope.streamSrc = '';
         $scope.startStream = function() {
-            socket.emit('start-stream');
+            Socket.emit('start-stream');
         }
-        socket.on('live-stream', function(url) {
+        Socket.on('live-stream', function(url) {
             $scope.streamSrc = url;
             $scope.start = false;
         });
