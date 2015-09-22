@@ -10,7 +10,7 @@ module.exports = function(server) {
 
     var fsfilename = '/public/image.jpg',
         frontfilename = 'image.jpg',
-        camfilename = "./public/image.jpg";
+        camfilename = path.join(__dirname, "/public/image.jpg");
 
     console.log(path.normalize(fsfilename));
     console.log(path.normalize(frontfilename));
