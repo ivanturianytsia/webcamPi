@@ -35,7 +35,7 @@ module.exports = function(server) {
             if (proc) {
                 proc.kill();
             }
-            fs.unwatchFile(fsfilename);
+            fs.unwatchFile(camfilename);
         }
     }
 
@@ -50,7 +50,7 @@ module.exports = function(server) {
 
         watching = true;
 
-        fs.watchFile(fsfilename, {
+        fs.watchFile(camfilename, {
             interval: 100
         }, function() {
             io.sockets.emit('live-stream', frontfilename + '?_t=' + (Math.random() * 100000));
