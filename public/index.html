@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="app">
+    <head>
+        <title>MyStream</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+        <script src="javascripts/app.js"></script>
+    </head>
+    <body ng-controller="main">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="text-center">MyStream</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button type="button" class="btn btn-info text-center" ng-show="start" ng-click="startStream()">Start Camera</button>
+                        <div ng-hide="start">
+                            <img src="{{streamSrc}}" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
