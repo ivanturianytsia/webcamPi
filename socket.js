@@ -26,7 +26,7 @@ module.exports = function(server) {
             if (proc) {
                 proc.kill();
             }
-            fs.unwatchFile('public/stream/image.jpg');
+            fs.unwatchFile('/public/stream/image.jpg');
         }
     }
 
@@ -36,12 +36,12 @@ module.exports = function(server) {
             return;
         }
 
-        var args = ["-r", "640x480", "-l", "1", "-q", "public/stream/image.jpg"];
+        var args = ["-r", "640x480", "-l", "1", "-q", "./public/stream/image.jpg"];
         proc = spawn('fswebcam', args);
 
         watching = true;
 
-        fs.watchFile('public/stream/image.jpg', {
+        fs.watchFile('/public/stream/image.jpg', {
             interval: 100
         }, function() {
             io.sockets.emit('live-stream', '/stream/image.jpg?_t=' + (Math.random() * 100000));
