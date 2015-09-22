@@ -8,6 +8,15 @@ module.exports = function(server) {
         proc,
         sockets = {};
 
+    var fsfilename = '/public/image.jpg',
+        frontfilename = 'image.jpg',
+        camfilename = "./public/image.jpg";
+
+    console.log(path.normalize(fsfilename));
+    console.log(path.normalize(frontfilename));
+    console.log(path.normalize(camfilename));
+
+
     io.on('connection', function(socket) {
         sockets[socket.id] = socket;
 
@@ -26,25 +35,25 @@ module.exports = function(server) {
             if (proc) {
                 proc.kill();
             }
-            fs.unwatchFile('/public/stream/image.jpg');
+            fs.unwatchFile(fsfilename);
         }
     }
 
     function startStreaming(io) {
         if (watching) {
-            io.sockets.emit('live-stream', '/stream/image.jpg?_t=' + (Math.random() * 100000));
+            io.sockets.emit('live-stream', frontfilename + '?_t=' + (Math.random() * 100000));
             return;
         }
 
-        var args = ["-r", "640x480", "-l", "1", "-q", "./public/stream/image.jpg"];
+        var args = ["-r", "640x480", "-l", "1", "-q", camfilename];
         proc = spawn('fswebcam', args);
 
         watching = true;
 
-        fs.watchFile('/public/stream/image.jpg', {
+        fs.watchFile(fsfilename, {
             interval: 100
         }, function() {
-            io.sockets.emit('live-stream', '/stream/image.jpg?_t=' + (Math.random() * 100000));
+            io.sockets.emit('live-stream', frontfilename + '?_t=' + (Math.random() * 100000));
         })
     }
 }
