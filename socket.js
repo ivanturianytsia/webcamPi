@@ -8,13 +8,8 @@ module.exports = function(server) {
         proc,
         sockets = {};
 
-    var fsfilename = '/public/image.jpg',
-        frontfilename = 'image.jpg',
-        camfilename = path.join(__dirname, "/public/image.jpg");
-
-    console.log(path.normalize(fsfilename));
-    console.log(path.normalize(frontfilename));
-    console.log(path.normalize(camfilename));
+    var clientfilename = 'stream/image.jpg',
+        filename = path.join(__dirname, "/public/stream/image.jpg");
 
 
     io.on('connection', function(socket) {
@@ -35,25 +30,25 @@ module.exports = function(server) {
             if (proc) {
                 proc.kill();
             }
-            fs.unwatchFile(camfilename);
+            fs.unwatchFile(filename);
         }
     }
 
     function startStreaming(io) {
         if (watching) {
-            io.sockets.emit('live-stream', frontfilename + '?_t=' + (Math.random() * 100000));
+            io.sockets.emit('live-stream', clientfilename + '?_t=' + (Math.random() * 100000));
             return;
         }
 
-        var args = ["-r", "640x480", "-l", "1", "-q", camfilename];
+        var args = ["-r", "640x480", "-l", "1", "-q", filename];
         proc = spawn('fswebcam', args);
 
         watching = true;
 
-        fs.watchFile(camfilename, {
+        fs.watchFile(filename, {
             interval: 100
         }, function() {
-            io.sockets.emit('live-stream', frontfilename + '?_t=' + (Math.random() * 100000));
+            io.sockets.emit('live-stream', clientfilename + '?_t=' + (Math.random() * 100000));
         })
     }
 }

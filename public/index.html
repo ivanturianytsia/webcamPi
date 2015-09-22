@@ -20,10 +20,10 @@
             <div class="col-md-offset-3 col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="text-center">MyStream</h3>
+                        <h3 class="text-center">MyStream <small>See how yo folks doin'</small></h3>
                     </div>
-                    <div class="panel-body">
-                        <button type="button" class="btn btn-info text-center" ng-show="start" ng-click="startStream()">Start Camera</button>
+                    <div class="panel-body text-center">
+                        <button type="button" class="btn btn-info" ng-show="start" ng-click="startStream()">Start Camera</button>
                         <div ng-hide="start">
                             <img ng-src="{{streamSrc}}" class="img-responsive">
                         </div>
