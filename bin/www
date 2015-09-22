@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('socket:server');
 var server = require('http').createServer(app);
-var io = require('../lib/socket.js')(server);
+var io = require('../socket.js')(server);
 /**
  * Get port from environment and store in Express.
  */
