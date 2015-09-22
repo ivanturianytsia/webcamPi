@@ -40,7 +40,7 @@ module.exports = function(server) {
             return;
         }
 
-        var args = ["-r", "640x480", "-l", "1", "-q", filename];
+        var args = ["-r", "640x480", "-l", "1", "-q", "--no-banner", filename];
         proc = spawn('fswebcam', args);
 
         watching = true;
