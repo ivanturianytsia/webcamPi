@@ -15,11 +15,14 @@ strong {
 .button-wrap {
 	position:relative;
 	top:50%;
+	-ms-transform:translateY(-50%);
+   	-webkit-transform:translateY(-50%);
 	transform:translateY(-50%);
 }
 .stream-view {
 	padding:0px;
 	min-height: 300px;
+	text-align: center;
 }
 .stream-wrap {
 	position:relative;
