@@ -5,12 +5,23 @@ body {
 strong {
 	color: DarkGoldenRod;
 }
-.stream-wrap {
-	background-color: Black;
-}
 .content-wrap {
 	padding:0px;
 }
+.start-view {
+	height:200px;
+	text-align: center;
+}
 .button-wrap {
-	padding:20px;
+	position:relative;
+	top:50%;
+	transform:translateY(-50%);
+}
+.stream-view {
+	padding:0px;
+	min-height: 300px;
+}
+.stream-wrap {
+	position:relative;
+	text-align: center;
 }

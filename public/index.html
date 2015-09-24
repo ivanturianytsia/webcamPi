@@ -23,12 +23,16 @@
                         <div class="panel-heading text-center">
                             <h2 class="panel-title"><strong>YoStream.</strong> See how yo folks doin'</small></h2>
                         </div>
-                        <div class="panel-body text-center content-wrap">
-                            <div ng-show="start" class="button-wrap">
-                                <button type="button" class="btn btn-info" ng-click="startStream()">Start Camera</button>
+                        <div class="panel-body content-wrap">
+                            <div ng-show="start" class="start-view">
+                                <div class="button-wrap">
+                                    <button type="button" class="btn btn-info" ng-click="startStream()">Start Camera</button>
+                                </div>
                             </div>
-                            <div ng-hide="start" class="text-center stream-wrap">
-                                <img ng-src="{{streamSrc}}" class="img-responsive">
+                            <div ng-hide="start" class="stream-view">
+                                <div class="stream-wrap">
+                                    <img ng-src="{{streamSrc}}" class="img-responsive">
+                                </div>
                             </div>
                         </div>
                     </div>
