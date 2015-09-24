@@ -5,11 +5,14 @@ body {
 strong {
 	color: DarkGoldenRod;
 }
-.stream {
+.stream-wrap {
 	width: 100% auto;
 	height: auto;
 	min-height: 480px;
 }
-.content {
+.content-wrap {
 	padding:0px;
+}
+.button-wrap {
+	padding:20px;
 }
