@@ -16,20 +16,23 @@
         <script src="javascripts/app.js"></script>
     </head>
     <body ng-controller="main">
-        <div class="row">
-            <div class="col-md-offset-3 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">
-                        <h2 class="panel-title"><strong>YoStream.</strong> See how yo folks doin'</small></h2>
-                    </div>
-                    <div class="panel-body text-center">
-                        <button type="button" class="btn btn-info" ng-show="start" ng-click="startStream()">Start Camera</button>
-                        <div ng-hide="start" class="text-center">
-                            <img ng-src="{{streamSrc}}" class="stream img-responsive">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            <h2 class="panel-title"><strong>YoStream.</strong> See how yo folks doin'</small></h2>
+                        </div>
+                        <div class="panel-body text-center content">
+                            <button type="button" class="btn btn-info" ng-show="start" ng-click="startStream()">Start Camera</button>
+                            <div class="text-center stream">
+                                <img ng-src="{{streamSrc}}" class="img-responsive">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </body>
 </html>

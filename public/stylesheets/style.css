@@ -6,6 +6,10 @@ strong {
 	color: DarkGoldenRod;
 }
 .stream {
-	width: 640px;
-	height: 480px;
+	width: 100% auto;
+	height: auto;
+	min-height: 480px;
+}
+.content {
+	padding:0px;
 }
