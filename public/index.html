@@ -27,7 +27,7 @@
                             <div class="button-wrap">
                                 <button type="button" class="btn btn-info" ng-show="start" ng-click="startStream()">Start Camera</button>
                             </div>
-                            <div class="text-center stream-wrap">
+                            <div ng-hide="start" class="text-center stream-wrap">
                                 <img ng-src="{{streamSrc}}" class="img-responsive">
                             </div>
                         </div>
